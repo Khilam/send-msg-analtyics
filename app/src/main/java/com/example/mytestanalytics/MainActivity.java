@@ -21,19 +21,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle1 = new Bundle();
+
+
         setContentView(R.layout.activity_main);
         number = findViewById(R.id.number);
         message = findViewById(R.id.message);
         send = findViewById(R.id.send);
+        bundle1.putString(FirebaseAnalytics.Param.ITEM_ID, "Nardi");
+        mFirebaseAnalytics.logEvent("technique_choisie", bundle1);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
 
-                bundle.putString("send", "Send Button");
+                bundle.putString("send", "mouna");
                 mFirebaseAnalytics.logEvent("send_button", bundle);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
